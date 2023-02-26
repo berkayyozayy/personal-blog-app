@@ -1,0 +1,47 @@
+---
+title: Why React Components Start With Uppercase Letters
+description: ReactJS component names must begin with capital letters?
+author: Berkay Özay
+cover: https://reactjs.org/logo-og.png
+avatar: https://media.licdn.com/dms/image/D4D03AQHonrl5ZxdNIA/profile-displayphoto-shrink_800_800/0/1666359190922?e=1683158400&v=beta&t=SQy-MEz55Xl8q5w1G42qBYyyOf9oB_NuxBNa5HU-SfI
+date: "26 Feb 2023"
+category: Engineering
+---
+
+# Why React Components Start With Uppercase Letters
+
+When creating React components, it's important to start the component name with a capital letter. This convention is not only a best practice, but also required by React.
+
+React uses the naming convention to differentiate between HTML elements and custom components. HTML elements such as div and span start with lowercase letters, whereas custom components start with uppercase letters.
+
+If a component name starts with a lowercase letter, React will assume that it's an HTML element and try to render it as such. This can cause unexpected behavior and errors in your application.
+
+## Babel's Role in Transforming JSX
+
+When using React, Babel is typically used to transform JSX code into regular JavaScript code that can be executed by a web browser.
+
+In JSX, React components are written in a format that resembles HTML markup, with component names written in uppercase letters. For example, here is a simple React component written in JSX:
+
+```jsx {3,5} showLineNumbers
+import React from "react";
+
+const button = () => {
+    return <button>Click Me</button>;
+};
+
+export default button;
+```
+
+When this component is used in another component, React will assume that button is an HTML element and try to render it as such. This will result in an error.
+
+> Warning: The tag button is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter.
+
+On the Babel side, starting a component name with a lowercase letter will cause a syntax error. This is because Babel will treat the lowercase name as a variable or function, and expect it to be defined somewhere in the code.
+
+## Conclusion
+
+In summary, the convention of starting React component names with an uppercase letter is a widely adopted convention in the React community. By following this convention, you can make your code more readable and maintainable, and also help other developers who are working with your code to quickly understand which parts of your code are React components.
+
+> Please don't hesitate to contact me if you have any questions
+>
+> — Berkay Özay, Front End Developer
