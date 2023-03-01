@@ -1,0 +1,33 @@
+---
+title: useLayoutEffect
+description: Understand React hooks flow and useLayoutEffect
+author: Berkay Özay
+cover: https://devmuscle.com/content/uselayouteffect_cover.svg
+avatar: https://media.licdn.com/dms/image/D4D03AQHonrl5ZxdNIA/profile-displayphoto-shrink_800_800/0/1666359190922?e=1683158400&v=beta&t=SQy-MEz55Xl8q5w1G42qBYyyOf9oB_NuxBNa5HU-SfI
+date: "1 Marc 2023"
+category: Engineering
+---
+
+The signature is identical to useEffect, but it fires synchronously after all DOM mutations.
+
+<img src="https://raw.githubusercontent.com/donavon/hook-flow/master/hook-flow.png" />
+
+When we mount, we run the lazy initializers, we render, we update the DOM, and then we run our layout effects.
+React does not wait for the browser to paint the screen before it runs these layout effects. This is important because the layout effects need to run before the browser paints the screen.
+Because we're making changes to the DOM in a way that will change what the browser paints.
+
+When we use layout effects, we can change stuff in the DOM before the browser has a chance to paint the screen. The browser only has to paint the screen once, and the user only will see that update that one time.
+
+## When to use useLayoutEffect
+
+The useLayoutEffect hook should be used when your component flickers when the state is updated, which means that it first renders in a partially-ready state before re-rendering in its final state right away.
+
+## Summary
+
+<b>useLayoutEffect:</b> If you need to mutate the DOM and/or do need to perform measurements <br />
+<b>useEffect:</b> If you don't need to interact with the DOM at all or your DOM changes
+are unobservable (seriously, most of the time you should use this).
+
+> Please don't hesitate to contact me if you have any questions
+>
+> — Berkay Özay, Front End Developer
